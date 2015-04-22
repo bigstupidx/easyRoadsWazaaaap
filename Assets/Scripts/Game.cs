@@ -132,10 +132,12 @@ public class Game : MonoBehaviour {
 //		for (int i=0; i<barriersObj.childCount; i++) {
 //			listBarriers.Add(barriersObj.GetChild(i).gameObject);
 //		}
-
+		/* old game
 		Transform citys = GameObject.Find("Citys").transform;
 		citys.GetChild(0).gameObject.SetActive(false);
 		citys.GetChild(1).gameObject.SetActive(true);
+		*/
+
 //		if(data.currentLvl % 2 == 0)
 //		{
 //			citys.GetChild(0).gameObject.SetActive(true);
@@ -151,9 +153,9 @@ public class Game : MonoBehaviour {
 		taskView.text = missionDescription;
 		//taskImg.mainTexture = lvlTextures [data.currentLvl - 1];
 		//setMissionItem ();
-		setMissionItemFromIntro ();
-		setBarrierItem ();
-		circleRemaining = itemsWrapper.transform.childCount;
+		//old_game setMissionItemFromIntro ();
+		//old_game setBarrierItem ();
+		//old_game circleRemaining = itemsWrapper.transform.childCount;
 		//circleRemaining -= data.GetFoundItemsCount ();
 		//hideFoundItems ();
 		showScore ();
@@ -206,6 +208,8 @@ public class Game : MonoBehaviour {
 		buttons.SetActive (false);
 		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().releaseAll();
 
+		// old_game
+		/*
 		for (int i = 0; i < listCheckPoints.Count; i++) {
 			listCheckPoints[i].SetActive (true);
 			// Reset color and available checkpoints
@@ -219,10 +223,11 @@ public class Game : MonoBehaviour {
 			}
 
 		}
+		*/
 
-		circleRemaining = itemsWrapper.transform.childCount;
+		// old_game circleRemaining = itemsWrapper.transform.childCount;
 		//circleRemaining -= data.GetFoundItemsCount ();
-		StartCoroutine(refreshCircles());
+		// old_game StartCoroutine(refreshCircles());
 		showScore ();
 		currentTime = 0f;//GameSettings.getTimeForLevel (data.currentLvl - 1);
 		setTimer ();
