@@ -8,7 +8,7 @@ public class Levels : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		offAllLevels ();
 	}
 	
 	// Update is called once per frame
