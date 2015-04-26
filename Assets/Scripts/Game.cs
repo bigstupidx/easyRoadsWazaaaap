@@ -114,6 +114,8 @@ public class Game : MonoBehaviour {
 	private int currentReset = 0;
 	private int cntResetInLevel = 3;
 
+	private Levels listLevels;
+
 	public enum GameType
 	{
 		collectForCount,
@@ -128,6 +130,10 @@ public class Game : MonoBehaviour {
 
 	void Start()
 	{
+		listLevels = GameObject.FindObjectOfType<Levels> ();
+
+		listLevels.setLevel (data.currentLvl-1);
+
 //		barriersObj = GameObject.Find ("Barriers").transform;
 //		for (int i=0; i<barriersObj.childCount; i++) {
 //			listBarriers.Add(barriersObj.GetChild(i).gameObject);
@@ -153,9 +159,11 @@ public class Game : MonoBehaviour {
 		taskView.text = missionDescription;
 		//taskImg.mainTexture = lvlTextures [data.currentLvl - 1];
 		//setMissionItem ();
-		//old_game setMissionItemFromIntro ();
+		//old_game 
+		setMissionItemFromIntro ();
 		//old_game setBarrierItem ();
-		//old_game circleRemaining = itemsWrapper.transform.childCount;
+		//old_game 
+		circleRemaining = itemsWrapper.transform.childCount;
 		//circleRemaining -= data.GetFoundItemsCount ();
 		//hideFoundItems ();
 		showScore ();
@@ -209,7 +217,7 @@ public class Game : MonoBehaviour {
 		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().releaseAll();
 
 		// old_game
-		/*
+		///*
 		for (int i = 0; i < listCheckPoints.Count; i++) {
 			listCheckPoints[i].SetActive (true);
 			// Reset color and available checkpoints
@@ -223,11 +231,13 @@ public class Game : MonoBehaviour {
 			}
 
 		}
-		*/
+		//*/
 
-		// old_game circleRemaining = itemsWrapper.transform.childCount;
+		// old_game 
+		circleRemaining = itemsWrapper.transform.childCount;
 		//circleRemaining -= data.GetFoundItemsCount ();
-		// old_game StartCoroutine(refreshCircles());
+		// old_game 
+		StartCoroutine(refreshCircles());
 		showScore ();
 		currentTime = 0f;//GameSettings.getTimeForLevel (data.currentLvl - 1);
 		setTimer ();
@@ -405,6 +415,7 @@ public class Game : MonoBehaviour {
 		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().Reset ();
 		resetBarriers ();
 		resetMissions ();
+		listLevels.offAllLevels ();
 		GoTo.LoadEnvironmentChoose ();
 		yield return null;
 	}
@@ -508,8 +519,9 @@ public class Game : MonoBehaviour {
 					//earningView.GetComponent<UILabel>().text =textErn;
 					//earningView.GetComponent<Animator>().Play("earning",0,0f);
 
-					bool isOpenedNewBike = false;
 
+					bool isOpenedNewBike = false;
+					/*tmp off open next level and a new bike
 					if(data.currentLvl == data.allowLvls)
 					{
 						data.allowLvls ++;
@@ -523,7 +535,9 @@ public class Game : MonoBehaviour {
 						}
 					}
 					//StartCoroutine(goToLvlChoose());
+					*/
 					StartCoroutine(Wins(isOpenedNewBike));
+
 				}
 //				}
 
@@ -589,6 +603,7 @@ public class Game : MonoBehaviour {
 
 		resetBarriers ();
 		resetMissions ();
+		listLevels.offAllLevels ();
 
 		GoTo.LoadEnvironmentChoose ();
 		yield return null;
@@ -697,6 +712,7 @@ public class Game : MonoBehaviour {
 		
 		resetBarriers ();
 		resetMissions ();
+		listLevels.offAllLevels ();
 		
 		GoTo.LoadNewShop ();
 	}
@@ -709,6 +725,7 @@ public class Game : MonoBehaviour {
 
 		resetBarriers ();
 		resetMissions ();
+		listLevels.offAllLevels ();
 
 		GoTo.LoadMenu ();
 	}

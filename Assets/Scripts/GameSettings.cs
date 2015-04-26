@@ -33,9 +33,9 @@ public class GameSettings{
 	// set time for each level
 	public static float deltaGoodTime = 10f;
 
-	static float[] listTime_3 = {30, 36, 45, 53, 90, 58, 60, 70, 86, 102, 100, 90, 120, 120, 180};
-	static float[] listTime_2 = {45, 48, 60, 70, 105, 75, 75, 85, 100, 115, 115, 105, 135, 135, 195};
-	static float[] listTime_1 = {60, 60, 75, 80, 120, 90, 90, 100, 115, 130, 130, 120, 150, 150, 210};
+	static float[] listTime_3 = {90, 36, 45, 53, 90, 58, 60, 70, 86, 102, 100, 90, 120, 120, 180};
+	static float[] listTime_2 = {105, 48, 60, 70, 105, 75, 75, 85, 100, 115, 115, 105, 135, 135, 195};
+	static float[] listTime_1 = {120, 60, 75, 80, 120, 90, 90, 100, 115, 130, 130, 120, 150, 150, 210};
 	// set level for unlocking next bike
 	static int[] listUnlockingBike = {1,5,8,12}; // {1,2,4,12};
 
