@@ -15,6 +15,7 @@ public class StartMenu : MonoBehaviour {
 	public void onGamePress()
 	{
 		AppSoundManager.Get ().PlaySfx (Sfx.Type.sfx_click);
+		GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
 		loadScreen.SetActive (true);
 		GoTo.LoadNewShop ();
 	}
