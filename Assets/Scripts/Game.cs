@@ -521,7 +521,7 @@ public class Game : MonoBehaviour {
 
 
 					bool isOpenedNewBike = false;
-					/*tmp off open next level and a new bike
+					///*tmp off open next level and a new bike
 					if(data.currentLvl == data.allowLvls)
 					{
 						data.allowLvls ++;
@@ -535,7 +535,7 @@ public class Game : MonoBehaviour {
 						}
 					}
 					//StartCoroutine(goToLvlChoose());
-					*/
+					//*/
 					StartCoroutine(Wins(isOpenedNewBike));
 
 				}
