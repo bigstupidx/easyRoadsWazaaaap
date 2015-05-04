@@ -379,6 +379,9 @@ public class Game : MonoBehaviour {
 
 	IEnumerator CountdownStart(int count, bool toHideLRButtons){
 		int i = count;
+
+		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().bikeCanMove (false);
+
 		Animation countdownAnim = countdown.GetComponent<Animation>();
 		float timeWaitingAnim = countdownAnim["countdown"].length;
 		UILabel countdownLbl = countdown.GetComponent<UILabel>();
@@ -396,6 +399,8 @@ public class Game : MonoBehaviour {
 		isRunning = true;
 		ShowLeftRightButtons(!toHideLRButtons);
 		buttons.SetActive (true);
+
+		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().bikeCanMove (true);
 	}
 
 	public void ShowControls(bool isShow){

@@ -77,6 +77,10 @@ public class BikeManager : MonoBehaviour {
 		listBikes [data.currentBike].GetComponent<AudioSource> ().mute = false;
 	}
 
+	public void bikeCanMove(bool canMove){
+		listBikes [data.currentBike].GetComponent<Rigidbody> ().isKinematic = !canMove;
+	}
+
 	public void setEnableAllBikes(bool enabled){
 		for (int i=0; i<countBikes; i++) {
 			if(enabled){
