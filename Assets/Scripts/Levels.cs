@@ -26,6 +26,13 @@ public class Levels : MonoBehaviour {
 		}
 	}
 
+	public GameObject getLevel(int numLevel){
+		if (numLevel < listLevel.Count) {
+			return listLevel [numLevel];
+		} else
+			return null;
+	}
+
 	public void offAllLevels(){
 		foreach (GameObject go in listLevel) {
 			go.SetActive(false);

@@ -774,4 +774,21 @@ public class Game : MonoBehaviour {
 		}
 		nitroBtn.transform.localPosition = pos;
 	}
+
+	public void ResetRoad(){
+		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().bikeCanMove (false);
+
+		GameObject currentLevel = listLevels.getLevel (data.currentLvl-1);
+		LevelInfo levelInfo = currentLevel.GetComponent<LevelInfo> ();
+		GameObject currentBike = GameObject.Find ("BikeManager").GetComponent<BikeManager> ().getCurrentBike ();
+		Vector3 resetPosition = levelInfo.getNearestMarker (currentBike);
+		currentBike.transform.position = resetPosition;
+
+		currentTime += GameSettings.penaltyTime;
+
+		earningView.GetComponent<UILabel>().text ="Penalty time: +5 sec";
+		earningView.GetComponent<Animator>().Play("earning",0,0f);
+
+		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().bikeCanMove (true);
+	}
 }

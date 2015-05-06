@@ -17,6 +17,8 @@ public class GameSettings{
 
 	public static int startLives = 3;
 
+	public static float penaltyTime = 5f;
+
 	static float[] lowParameters = {4f,4f,1f};
 	static float[] middleParameters = {3f,3f,1f};
 	static float[] hardParameters = {2f,2f,2f};
