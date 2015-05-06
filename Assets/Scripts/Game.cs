@@ -781,9 +781,8 @@ public class Game : MonoBehaviour {
 		GameObject currentLevel = listLevels.getLevel (data.currentLvl-1);
 		LevelInfo levelInfo = currentLevel.GetComponent<LevelInfo> ();
 		GameObject currentBike = GameObject.Find ("BikeManager").GetComponent<BikeManager> ().getCurrentBike ();
-		Vector3 resetPosition = levelInfo.getNearestMarker (currentBike);
-		currentBike.transform.position = resetPosition;
-
+		levelInfo.getNearestMarker (currentBike);
+	
 		currentTime += GameSettings.penaltyTime;
 
 		earningView.GetComponent<UILabel>().text ="Penalty time: +5 sec";

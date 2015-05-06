@@ -18,22 +18,23 @@ public class LevelInfo : MonoBehaviour {
 	
 	}
 
-	public Vector3 getNearestMarker(GameObject currentObject){
+	public void getNearestMarker(GameObject currentObject){
 		float minDistance = 0;
-		Vector3 resultPosition = default(Vector3);
+		GameObject nearestMarker = currentObject;
 		foreach (GameObject marker in listMarkers) {
 			Vector3 delta = currentObject.transform.position - marker.transform.position;
 			if(Mathf.Approximately(minDistance, 0f) == true){
 				minDistance = delta.magnitude;
-				resultPosition = marker.transform.position; 
+				nearestMarker = marker; 
 			}else if(delta.magnitude < minDistance){
 				minDistance = delta.magnitude;
-				resultPosition = marker.transform.position; 
+				nearestMarker = marker; 
 			}
 		}
 
-		resultPosition = new Vector3 (resultPosition.x, resultPosition.y + 1f, resultPosition.z);
+		Vector3 resultPosition = new Vector3 (nearestMarker.transform.position.x, nearestMarker.transform.position.y + 1f, nearestMarker.transform.position.z);
 
-		return resultPosition;
+		currentObject.transform.position = resultPosition;
+		currentObject.transform.rotation = nearestMarker.transform.rotation;
 	}
 }
