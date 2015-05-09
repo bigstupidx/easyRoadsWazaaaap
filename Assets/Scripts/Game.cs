@@ -420,7 +420,7 @@ public class Game : MonoBehaviour {
 		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().Reset ();
 		resetBarriers ();
 		resetMissions ();
-		listLevels.offAllLevels ();
+		listLevels.offLevel (data.currentLvl - 1);
 		GoTo.LoadEnvironmentChoose ();
 		yield return null;
 	}
@@ -608,7 +608,7 @@ public class Game : MonoBehaviour {
 
 		resetBarriers ();
 		resetMissions ();
-		listLevels.offAllLevels ();
+		listLevels.offLevel (data.currentLvl - 1);
 
 		GoTo.LoadEnvironmentChoose ();
 		yield return null;
@@ -717,7 +717,7 @@ public class Game : MonoBehaviour {
 		
 		resetBarriers ();
 		resetMissions ();
-		listLevels.offAllLevels ();
+		listLevels.offLevel (data.currentLvl - 1);
 		
 		GoTo.LoadNewShop ();
 	}
@@ -730,7 +730,7 @@ public class Game : MonoBehaviour {
 
 		resetBarriers ();
 		resetMissions ();
-		listLevels.offAllLevels ();
+		listLevels.offLevel (data.currentLvl - 1);
 
 		GoTo.LoadMenu ();
 	}

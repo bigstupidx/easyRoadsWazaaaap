@@ -8,7 +8,7 @@ public class Levels : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		offAllLevels ();
+		//offAllLevels ();
 	}
 	
 	// Update is called once per frame
@@ -17,13 +17,15 @@ public class Levels : MonoBehaviour {
 	}
 
 	public void setLevel(int numLevel){
-		for (int i = 0; i < listLevel.Count; i++) {
-			if(i == numLevel){
-				listLevel[i].SetActive(true);
-			}else{
-				listLevel[i].SetActive(false);
-			}
-		}
+		listLevel[numLevel].SetActive(true);
+
+//		for (int i = 0; i < listLevel.Count; i++) {
+//			if(i == numLevel){
+//				listLevel[i].SetActive(true);
+//			}else{
+//				listLevel[i].SetActive(false);
+//			}
+//		}
 	}
 
 	public GameObject getLevel(int numLevel){
@@ -31,6 +33,10 @@ public class Levels : MonoBehaviour {
 			return listLevel [numLevel];
 		} else
 			return null;
+	}
+
+	public void offLevel(int numLevel){
+		listLevel[numLevel].SetActive(false);
 	}
 
 	public void offAllLevels(){
