@@ -39,7 +39,7 @@ public class GameSettings{
 	static float[] listTime_2 = {105, 105, 180, 135, 160, 160, 130, 135, 150, 150, 105, 105, 180, 135, 160, 160, 130, 135, 150, 150};
 	static float[] listTime_1 = {120, 120, 200, 150, 180, 180, 145, 150, 165, 165, 120, 120, 200, 150, 180, 180, 145, 150, 165, 165};
 	// set level for unlocking next bike
-	static int[] listUnlockingBike = {1,2,3,3}; // {1,2,4,12};
+	static int[] listUnlockingBike = {1,2,4,6}; // {1,2,4,12};
 
 	// speed, acceleration, lean, handling
 	static BikeStatics[] bikeStatisticsArray = {new BikeStatics(0.45f, 0.7f, 0.7f, 0.75f), 
