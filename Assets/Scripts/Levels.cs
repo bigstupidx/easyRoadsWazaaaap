@@ -17,7 +17,7 @@ public class Levels : MonoBehaviour {
 	}
 
 	public void setLevel(int numLevel){
-		listLevel[numLevel].SetActive(true);
+		listLevel[getIndexLevel(numLevel)].SetActive(true);
 
 //		for (int i = 0; i < listLevel.Count; i++) {
 //			if(i == numLevel){
@@ -29,19 +29,30 @@ public class Levels : MonoBehaviour {
 	}
 
 	public GameObject getLevel(int numLevel){
-		if (numLevel < listLevel.Count) {
-			return listLevel [numLevel];
-		} else
-			return null;
+//		if (numLevel < listLevel.Count) {
+			return listLevel [getIndexLevel(numLevel)];
+//		} else
+//			return null;
 	}
 
 	public void offLevel(int numLevel){
-		listLevel[numLevel].SetActive(false);
+		listLevel[getIndexLevel(numLevel)].SetActive(false);
 	}
 
 	public void offAllLevels(){
 		foreach (GameObject go in listLevel) {
 			go.SetActive(false);
 		}
+	}
+
+	private int getIndexLevel(int numLevel){
+		int indexLevel = -1;
+		
+		if (numLevel < 10)
+			indexLevel = numLevel;
+		else
+			indexLevel = numLevel - 10;
+
+		return indexLevel;
 	}
 }
