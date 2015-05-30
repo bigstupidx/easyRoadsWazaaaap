@@ -25,7 +25,7 @@ public class EnvironmentChoose : MonoBehaviour {
 	public List<UITexture> lvlsView;
 
 	private int numItem = 0;
-	private int countLevels = 15;
+	private int countLevels = 20;
 
 	void Start()
 	{

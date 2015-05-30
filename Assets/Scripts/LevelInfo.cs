@@ -4,11 +4,6 @@ using System.Collections.Generic;
 
 public class LevelInfo : MonoBehaviour {
 
-	public GameObject startLine;
-	public GameObject finishLine;
-
-	public GameObject ringCollider;
-
 	public List<GameObject> listMarkers;
 
 	//private float maxDistance = 999999f;
@@ -21,18 +16,6 @@ public class LevelInfo : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	public void setForwardDirection(){
-		ringCollider.transform.position = finishLine.transform.position;
-		ringCollider.transform.rotation = finishLine.transform.rotation;
-		ringCollider.transform.localScale = finishLine.transform.localScale;
-	}
-
-	public void setReverseDirection(){
-		ringCollider.transform.position = startLine.transform.position;
-		ringCollider.transform.rotation = startLine.transform.rotation;
-		ringCollider.transform.localScale = startLine.transform.localScale;
 	}
 
 	public void getNearestMarker(GameObject currentObject){

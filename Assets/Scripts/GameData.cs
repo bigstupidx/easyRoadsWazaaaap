@@ -21,7 +21,7 @@ public class GameData{
 
 
 
-	private string version = "save_00124";
+	private string version = "save_00126";
 	public static GameData Get()
 	{
 		if (instance == null)
@@ -65,7 +65,7 @@ public class GameData{
 		cash = 0;
 		currentBike = 0;
 		currentLvl = 1;
-		allowLvls = 1;
+		allowLvls = 1; // test need to set 1!!!!!!
 		allowBikes = new List<int> ();
 		allowBikes.Add (0);
 

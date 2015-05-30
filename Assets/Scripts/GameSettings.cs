@@ -13,7 +13,7 @@ public class GameSettings{
 		Hard
 	}
 
-	public static int countLevels = 15;
+	public static int countLevels = 20;
 
 	public static int startLives = 3;
 
