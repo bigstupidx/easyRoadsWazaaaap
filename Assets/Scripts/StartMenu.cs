@@ -15,9 +15,15 @@ public class StartMenu : MonoBehaviour {
 	public void onGamePress()
 	{
 		AppSoundManager.Get ().PlaySfx (Sfx.Type.sfx_click);
-		GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
+		if (GameData.Get ().interstitialCount == 0)
+			GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitialDelegate (OnInterstitialCallback);
 		loadScreen.SetActive (true);
 		GoTo.LoadNewShop ();
+	}
+
+	private void OnInterstitialCallback(){
+		if(GameData.Get ().interstitialCount == 0)
+			GameData.Get ().interstitialCount++;
 	}
 
 	public void onShopPress()

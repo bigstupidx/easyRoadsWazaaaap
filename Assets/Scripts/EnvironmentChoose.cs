@@ -261,6 +261,22 @@ public class EnvironmentChoose : MonoBehaviour {
 		loadScreen.SetActive (true);
 		data.currentLvl = lvl;
 		data.save ();
+
+		StartCoroutine (ShowIntersttitial());
+
 		GoTo.LoadGameTownOne ();
+	}
+
+	IEnumerator ShowIntersttitial(){
+		if (GameData.Get ().interstitialCount == 0)
+			GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitialDelegate (OnInterstitialCallback);
+		yield return null;
+	}
+
+	private void OnInterstitialCallback(){
+		if (GameData.Get ().interstitialCount == 0)
+			GameData.Get ().interstitialCount++;
+		else
+			GameData.Get ().interstitialCount = 0;
 	}
 }

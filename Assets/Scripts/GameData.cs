@@ -19,9 +19,10 @@ public class GameData{
 	public List<int> progressList;
 	public List<List<int>> collectedItems;
 
+	public int interstitialCount = 0;
 
 
-	private string version = "save_00126";
+	private string version = "save_00128";
 	public static GameData Get()
 	{
 		if (instance == null)
@@ -34,6 +35,9 @@ public class GameData{
 		return instance;
 	}
 
+	public GameData(){
+		interstitialCount = 0;
+	}
 
 	GameData Load ()
 	{		

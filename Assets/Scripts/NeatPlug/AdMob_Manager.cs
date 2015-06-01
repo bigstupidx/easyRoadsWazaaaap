@@ -219,6 +219,21 @@ public class AdMob_Manager : MonoBehaviour {
 			GoogleAnalytics.Instance.LogError("Interstital was requested but it wasn't ready", false);
 		}
 	}
+
+	public delegate void InetstitialCallback();
+
+	// Show the interstitial we have loaded
+	public void showInterstitialDelegate(InetstitialCallback callback, bool force = false)
+	{
+		// Make sure we have a ready interstitial or we are forcing it
+		if(isInterstitialReady || force){
+			AdmobAd.Instance().ShowInterstitialAd();
+			if(callback != null)
+				callback();
+		} else {
+			GoogleAnalytics.Instance.LogError("Interstital was requested but it wasn't ready", false);
+		}
+	}
 	
 	// Show the banner advert
 	public void showBanner(bool overlapScreen = false, bool force = false)

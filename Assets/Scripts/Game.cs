@@ -250,7 +250,7 @@ public class Game : MonoBehaviour {
 		currentReset++;
 		if (currentReset == cntResetInLevel) {
 			//Show Interstatial
-			GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
+			//GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
 			currentReset = 0;
 		}
 	}
@@ -421,6 +421,9 @@ public class Game : MonoBehaviour {
 		resetBarriers ();
 		resetMissions ();
 		listLevels.offLevel (data.currentLvl - 1);
+
+		GameData.Get ().interstitialCount = 0;
+
 		GoTo.LoadEnvironmentChoose ();
 		yield return null;
 	}
@@ -590,7 +593,7 @@ public class Game : MonoBehaviour {
 		if (isOpenedNewLevel == false) {
 			yield return StartCoroutine (goToLvlChoose ());
 		}else {
-			GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
+			//GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
 			newBikeInfo.SetActive(true);
 		}
 
@@ -602,13 +605,15 @@ public class Game : MonoBehaviour {
 		yield return new WaitForSeconds (3.5f);
 
 		//Show Interstatial
-		GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
+		//GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitial ();
 
 		GameObject.Find ("BikeManager").GetComponent<BikeManager> ().Reset ();
 
 		resetBarriers ();
 		resetMissions ();
 		listLevels.offLevel (data.currentLvl - 1);
+
+		GameData.Get ().interstitialCount = 0;
 
 		GoTo.LoadEnvironmentChoose ();
 		yield return null;
@@ -718,7 +723,9 @@ public class Game : MonoBehaviour {
 		resetBarriers ();
 		resetMissions ();
 		listLevels.offLevel (data.currentLvl - 1);
-		
+
+		GameData.Get ().interstitialCount = 0;
+
 		GoTo.LoadNewShop ();
 	}
 
@@ -731,6 +738,8 @@ public class Game : MonoBehaviour {
 		resetBarriers ();
 		resetMissions ();
 		listLevels.offLevel (data.currentLvl - 1);
+
+		GameData.Get ().interstitialCount = 0;
 
 		GoTo.LoadMenu ();
 	}
@@ -748,6 +757,9 @@ public class Game : MonoBehaviour {
 	{
 		Time.timeScale = 1f;
 		isRunning = false;
+
+		GameData.Get ().interstitialCount = 0;
+
 		GoTo.LoadShop ();
 	}
 
