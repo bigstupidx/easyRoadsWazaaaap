@@ -22,7 +22,7 @@ public class GameData{
 	public int interstitialCount = 0;
 
 
-	private string version = "save_00128";
+	private string version = "save_00129";
 	public static GameData Get()
 	{
 		if (instance == null)

@@ -256,20 +256,38 @@ public class EnvironmentChoose : MonoBehaviour {
 	{
 		if(lvl > data.allowLvls) return;
 
+		StartCoroutine (PlayGame(lvl));
+
+//		GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().hideBanner ();
+//		levelList.SetActive (false);
+//		loadScreen.SetActive (true);
+//		data.currentLvl = lvl;
+//		data.save ();
+//
+//		StartCoroutine (ShowIntersttitial());
+//
+//		GoTo.LoadGameTownOne ();
+	}
+
+	IEnumerator PlayGame(int lvl){
 		GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().hideBanner ();
 		levelList.SetActive (false);
 		loadScreen.SetActive (true);
 		data.currentLvl = lvl;
 		data.save ();
 
-		StartCoroutine (ShowIntersttitial());
+		yield return new WaitForEndOfFrame ();
 
+		StartCoroutine (ShowIntersttitial());
+		
 		GoTo.LoadGameTownOne ();
+		
 	}
 
 	IEnumerator ShowIntersttitial(){
-		if (GameData.Get ().interstitialCount == 0)
+		if (GameData.Get ().interstitialCount == 0) {
 			GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitialDelegate (OnInterstitialCallback);
+		}
 		yield return null;
 	}
 
