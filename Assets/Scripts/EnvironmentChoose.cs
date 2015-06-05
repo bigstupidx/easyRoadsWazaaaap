@@ -285,9 +285,9 @@ public class EnvironmentChoose : MonoBehaviour {
 	}
 
 	IEnumerator ShowIntersttitial(){
-		if (GameData.Get ().interstitialCount == 0) {
+		//if (GameData.Get ().interstitialCount == 0) {
 			GameObject.Find ("AdmobAdAgent").GetComponent<AdMob_Manager> ().showInterstitialDelegate (OnInterstitialCallback);
-		}
+		//}
 		yield return null;
 	}
 
